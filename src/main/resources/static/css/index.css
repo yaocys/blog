@@ -1,0 +1,76 @@
+#html {
+    background: url("../img/Wave.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#main {
+    height: 900px;
+    margin-top: 10px
+}
+
+#main > a {
+    user-select: all;
+}
+
+a {
+    text-decoration: none;
+    color: #0fb9b1;
+}
+
+a:hover{
+    color: #00d2d3;
+}
+
+footer {
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#navbar {
+    box-shadow: 0 3px 5px rgba(45, 52, 54, 0.3);
+    z-index: 999;
+}
+
+.side-bar{
+    width: 15.5em;
+    padding: 0;
+}
+
+@media screen and (max-width: 992px) {
+    .side-bar{
+        display: none;
+    }
+    .catalog{
+        display: none;
+    }
+    .essay-list{
+        width: 100%;
+        margin-left: auto;
+    }
+
+    .essay-main{
+        width: 100%;
+        margin-right: auto;
+    }
+}
+
+.card{
+    margin-bottom: 0.5em;
+}
+
+.essay-list{
+    padding: 0;
+}
+
+@media screen and (min-width: 992px) {
+    .card-img{
+        max-width: 12em;
+    }
+}
+
+

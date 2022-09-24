@@ -1,0 +1,23 @@
+#main{
+    width: 750px;
+    border: 1px solid #fab1a0;
+    padding: 10px;
+    margin: auto;
+}
+
+#title_container{
+    width: 750px;
+    text-align: center;
+}
+
+.section{
+    color: #74b9ff;
+}
+
+.title{
+    color: #fdcb6e;
+}
+
+p{
+    color: #2d3436;
+}

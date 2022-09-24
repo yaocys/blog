@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>文章标题</title>
+    <link rel="icon" th:href="@{/icon/icon.png}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/typo.css}">
+    <!--Bootstrap图标库-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <link rel="stylesheet" th:href="@{/css/atom-one-dark.min.css}">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<!--顶栏-->
+<nav th:replace="index::nav-bar"></nav>
+
+<div class="container bg-info">
+    <div class="row container bg-dark mx-auto" style="padding: 0">
+        <!--文章主内容-->
+        <div class="container bg-warning col-9 essay-main">
+            <!--面包屑导航-->
+            <nav aria-label="breadcrumb" class="pt-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                </ol>
+            </nav>
+            <!--文章配图-->
+            <img th:src="@{/img/Blue.jpg}" alt="" class="card-img-top" style="height: 18em;object-fit: cover">
+            <!--文章主体-->
+            <div class="container bg-light card typo user-select-none">
+                <!--文章标头部分-->
+                <div class="container text-center">
+                    <i class="fw-bolder fs-2">这是文章的标题</i>
+                    <div class="row text-center">
+                                <span class="card-text fw-lighter">
+                                    <span><a href="#">动态规划 |</a></span>
+                                    <span><a href="#">Spring |</a></span>
+                                    <span><a href="#">技术总结 |</a></span>
+                                    <span><a href="#">随笔</a></span>
+                                </span>
+                        <span class="card-text user-select-none">
+                                    <i class="bi bi-calendar4-week"></i><small class="text-muted">&nbsp;2022-8-24&nbsp;&nbsp;</small>
+                                    <i class="bi bi-eye"></i><small class="text-muted">&nbsp;1046&nbsp;&nbsp;</small>
+                                    <i class="bi bi-chat-dots"></i><small class="text-muted">&nbsp;43</small>
+                                </span>
+                        <span id="introduction"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <article id="article"></article>
+                    <h4>代码段</h4>
+                    <div id="content">aa</div>
+
+                    <p>这是一段文本内容</p>
+                </div>
+            </div>
+        </div>
+
+        <!--文章目录-->
+        <div class="col-3 bg-primary catalog"> <!--style="height: 600px;margin-top: 5em;width: 15em"-->
+            <div style="height: 200px;margin-top: 4.35em;margin-bottom: 1em" class="bg-info"></div>
+            <div class="card position-sticky" style="height: 300px;top: 5em">
+                <h3>目录</h3>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+</body>
+
+<script th:inline="javascript">
+    const username = [[${username}]];
+    console.log(username)
+</script>
+
+<script>
+    /*    import {marked} from 'marked';
+        // const marked = require('marked');
+        var rendererMD = new marked.Renderer();
+        marked.setOptions({
+            renderer: rendererMD,
+            gfm: true,
+            tables: true,
+            breaks: false,
+            pedantic: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: false
+        });*/
+
+
+    let introduction = '> 导语：这是对文章内容的整体摘要，同时也是显示在预览卡片的文本内容\n';
+
+    let string = '# 以下开始是正文内容\n' +
+        '---\n' +
+        '## 这是对文章页面的静态内容示例\n' +
+        '[点击回到首页](../index.html)\n' +
+        '### 三级标题\n' +
+        '#### 四级标题\n' +
+        '##### 五级标题\n' +
+        '###### 六级标题\n' +
+        '~~删除线~~**加粗**' +
+        '\n`string s = str`\n' +
+        '*斜体*感觉像是支持了但是没有被显示\n\n' +
+        '==高亮==有问题没支持\n' +
+        '***斜体加粗***\n' +
+        '| test   | safe啊 |\n' +
+        '| ------ | ------ |\n' +
+        '| 罚恶法 | 罚恶法 |\n' +
+        '### 以下内容支持markdown\n' +
+        '这张是图床加载来的照片\n' +
+        '![图片描述](https://segmentfault.com/img/bVSAA2?w=825&h=431)\n' +
+        '\n' +
+        '\n' +
+        '\n' +
+        '1. 用户管理\n' +
+        '\n' +
+        '   * 员工管理\n' +
+        '\n' +
+        '   * 角色授权\n' +
+        '\n' +
+        '     > 不同权限用户能够访问到的功能模块不一样\n' +
+        '\n这是原生的图片插入' +
+        '![文章配图](@{/img/Blue.jpg))\n' +
+        '很明显大小不太合适\n\n' +
+        '2. 会员签到\n' +
+        '\n' +
+        '   * 签到页面（按电话号码、会员卡号）\n' +
+        '   * 日历页面，可以一目了然查看某个用户当月签到了多少天\n' +
+        '\n' +
+        '3. 设备管理\n' +
+        '\n' +
+        '   * 器材管理\n' +
+        '\n' +
+        '     > 比如我表里有一个字段代表类型代码，这个字段是外键，对应再另外一张表里可以查到代码对应的名称、型号、造价\n' +
+        '     >\n' +
+        '     > 那我怎么让结果里直接显示名称而不显示类型代码？\n' +
+        '\n' +
+        '4. 信息管理\n' +
+        '\n' +
+        '   * 一览：查看联合三张表的简要信息\n' +
+        '\n' +
+        '   * 会员管理\n' +
+        '   * 教练管理\n' +
+        '```sql\n' +
+        '# 创建一个用户\n' +
+        '# %代表所有IP可访问\n' +
+        'create user \'remote\'@\'%\' identified by \'Remote123\';\n' +
+        '# 为用户授权\n' +
+        'grant all privileges on *.* to \'remote\'@\'%\' with grant option;\n' +
+        '```';
+
+    let markdownString = '```java\nimport org.apache.commons.lang3.StringUtils;\n' +
+        'import java.sql.Timestamp;\n' +
+        '/**\n' +
+        ' * @author yao 2022/8/1\n' +
+        ' */\n' +
+        'public class tempTest {\n' +
+        '    public static void main(String[] args) {\n' +
+        '        List<Integer> list = new LinkedList<>();\n' +
+        '        /*tempTest t = new tempTest();\n' +
+        '            System.out.println(longestSub(nums));\n' +
+        '        }*/\n' +
+        '    }\n' +
+        '    public static int longestSub(int[] nums){\n' +
+        '        int i=0,j=1,max=0,sum=nums[0],n= nums.length;\n' +
+        '        while(j<n){\n' +
+        '            if(nums[j]>=sum){\n' +
+        '                sum += nums[j];\n' +
+        '                max = Math.max(max,j-i+1);// max是一个索引？\n' +
+        '                j++;\n' +
+        '            }else{\n' +
+        '                sum-=nums[i];\n' +
+        '                i++;\n' +
+        '            }\n' +
+        '        }\n' +
+        '        return max;\n' +
+        '    }\n' +
+        '}\n ```';
+    marked.setOptions({
+        highlight: function (code) {
+            return hljs.highlightAuto(code).value;
+        }
+    });
+    document.getElementById('content').innerHTML = marked.parse(markdownString);
+    document.getElementById('article').innerHTML = marked.parse(string);
+    document.getElementById('introduction').innerHTML = marked.parse(introduction);
+</script>
+</html>
