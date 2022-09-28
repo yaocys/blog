@@ -23,7 +23,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar" th:fragment="nav-bar">
     <div class="container-md">
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" th:href="@{index}">
             <img th:src="@{/icon/icon.png}" alt="" width="30" height="30" class="d-inline-block align-top"> &nbsp;Yao's
         </a>
 
@@ -171,86 +171,97 @@
                 </div>
             </div>
 
-            <!--不带图片-->
             <div class="card">
-                <div class="card-header fs-5 d-inline">
-                    不是每一篇文章都有配图的
+                <div class="card-header fs-5 d-inline">文章分类
+
                     <p class="card-text fs-6 fw-lighter" style="float: right">
-                        <span class="badge rounded-pill bg-warning">动态规划</span>
-                        <span class="badge rounded-pill bg-success">Spring</span>
-                        <span class="badge rounded-pill bg-info">技术总结</span>
-                        <span class="badge rounded-pill bg-dark">随笔</span>
+                        <span class="badge rounded-pill bg-warning btn">动态规划</span>
+                        <span class="badge rounded-pill bg-success btn">Spring</span>
+                        <span class="badge rounded-pill bg-info btn">技术总结</span>
+                        <span class="badge rounded-pill bg-dark btn">随笔</span>
                     </p>
                 </div>
                 <div class="card-body row">
-
-                    <div class="col-md">
-                        <a href="#"><h5 class="card-title">这里多行截断还没能解决</h5></a>
-                        <div class="card-text text-truncate user-select-none" style="color: #b2bec3">
-                            这是文章内容的摘要，简要概述了文章的主要内容，如果想要查看文章的具体内容，就请点击下面的按钮吧。
-                            很明显，我总不能每篇文章都找一张合适的图片，因为这样实在是有点麻烦
-                        </div>
-                        <div>
-                            <a href="#" class="link-secondary fs-6">文章详情 >></a>
-                            <p class="card-text" style="float: right">
-                                <i class="bi bi-calendar4-week"></i><small class="text-muted">&nbsp;2022-8-24&nbsp;&nbsp;</small>
-                                <i class="bi bi-eye"></i><small class="text-muted">&nbsp;1046&nbsp;&nbsp;</small>
-                                <i class="bi bi-chat-dots"></i><small class="text-muted">&nbsp;43</small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--不带图片-->
-            <div class="card">
-                <div class="card-header fs-5 d-inline">
-                    不是每一篇文章都有配图的
-                    <p class="card-text fs-6 fw-lighter" style="float: right">
-                        <span class="badge rounded-pill bg-warning">动态规划</span>
-                        <span class="badge rounded-pill bg-success">Spring</span>
-                        <span class="badge rounded-pill bg-info">技术总结</span>
-                        <span class="badge rounded-pill bg-dark">随笔</span>
-                    </p>
-                </div>
-                <div class="card-body row">
-
-                    <div class="col-md">
-                        <a href="#"><h5 class="card-title">这里多行截断还没能解决</h5></a>
-                        <div class="card-text text-truncate user-select-none" style="color: #b2bec3">
-                            这是文章内容的摘要，简要概述了文章的主要内容，如果想要查看文章的具体内容，就请点击下面的按钮吧。
-                            很明显，我总不能每篇文章都找一张合适的图片，因为这样实在是有点麻烦
-                        </div>
-                        <div>
-                            <a href="#" class="link-secondary fs-6">文章详情 >></a>
-                            <p class="card-text" style="float: right">
-                                <i class="bi bi-calendar4-week"></i><small class="text-muted">&nbsp;2022-8-24&nbsp;&nbsp;</small>
-                                <i class="bi bi-eye"></i><small class="text-muted">&nbsp;1046&nbsp;&nbsp;</small>
-                                <i class="bi bi-chat-dots"></i><small class="text-muted">&nbsp;43</small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="margin-bottom: 10px">
-                <h5 class="card-header">精选</h5>
-                <div class="card-body row">
-                    <div class="col-md-3">
-                        <img th:src="@{/img/Blue.jpg}" class="img-fluid rounded-start" alt="...">
+                    <div class="col-md-4">
+                        <img th:src="@{/img/Blue.jpg}" class="img-fluid rounded-1 card-img" alt="...">
                     </div>
                     <div class="col-md-8">
-                        <h5 class="card-title">这是特别的文章标题</h5>
-                        <p class="card-text">这是文章内容的摘要，简要概述了文章的主要内容，如果想要查看文章的具体内容，就请点击下面的按钮吧</p>
+                        <a th:href="@{post}"><h5 class="card-title">这是特别的文章标题</h5></a>
+                        <p class="card-text user-select-none" style="color: #b2bec3;">
+                            这是文章内容的摘要，简要概述了文章的主要内容，如果想要查看文章的具体内容，就请点击下面的按钮吧</p>
                         <div>
-                            <a href="#" class="btn btn-primary">查看详情</a>
-                            <p class="card-text" style="float: right"><small class="text-muted">Last updated 3 mins
-                                ago</small></p>
+                            <a href="#" class="link-secondary fs-6">文章详情 >></a>
+                            <p class="card-text user-select-none" style="float: right">
+                                <i class="bi bi-calendar4-week"></i><small class="text-muted">&nbsp;2022-8-24&nbsp;&nbsp;</small>
+                                <i class="bi bi-eye"></i><small class="text-muted">&nbsp;1046&nbsp;&nbsp;</small>
+                                <i class="bi bi-chat-dots"></i><small class="text-muted">&nbsp;43</small>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!--不带图片-->
+            <div class="card">
+                <div class="card-header fs-5 d-inline">
+                    不是每一篇文章都有配图的
+                    <p class="card-text fs-6 fw-lighter" style="float: right">
+                        <span class="badge rounded-pill bg-warning">动态规划</span>
+                        <span class="badge rounded-pill bg-success">Spring</span>
+                        <span class="badge rounded-pill bg-info">技术总结</span>
+                        <span class="badge rounded-pill bg-dark">随笔</span>
+                    </p>
+                </div>
+                <div class="card-body row">
+
+                    <div class="col-md">
+                        <a href="#"><h5 class="card-title">这里多行截断还没能解决</h5></a>
+                        <div class="card-text text-truncate user-select-none" style="color: #b2bec3">
+                            这是文章内容的摘要，简要概述了文章的主要内容，如果想要查看文章的具体内容，就请点击下面的按钮吧。
+                            很明显，我总不能每篇文章都找一张合适的图片，因为这样实在是有点麻烦
+                        </div>
+                        <div>
+                            <a href="#" class="link-secondary fs-6">文章详情 >></a>
+                            <p class="card-text" style="float: right">
+                                <i class="bi bi-calendar4-week"></i><small class="text-muted">&nbsp;2022-8-24&nbsp;&nbsp;</small>
+                                <i class="bi bi-eye"></i><small class="text-muted">&nbsp;1046&nbsp;&nbsp;</small>
+                                <i class="bi bi-chat-dots"></i><small class="text-muted">&nbsp;43</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--不带图片-->
+            <div class="card">
+                <div class="card-header fs-5 d-inline">
+                    不是每一篇文章都有配图的
+                    <p class="card-text fs-6 fw-lighter" style="float: right">
+                        <span class="badge rounded-pill bg-warning">动态规划</span>
+                        <span class="badge rounded-pill bg-success">Spring</span>
+                        <span class="badge rounded-pill bg-info">技术总结</span>
+                        <span class="badge rounded-pill bg-dark">随笔</span>
+                    </p>
+                </div>
+                <div class="card-body row">
+
+                    <div class="col-md">
+                        <a href="#"><h5 class="card-title">这里多行截断还没能解决</h5></a>
+                        <div class="card-text text-truncate user-select-none" style="color: #b2bec3">
+                            这是文章内容的摘要，简要概述了文章的主要内容，如果想要查看文章的具体内容，就请点击下面的按钮吧。
+                            很明显，我总不能每篇文章都找一张合适的图片，因为这样实在是有点麻烦
+                        </div>
+                        <div>
+                            <a href="#" class="link-secondary fs-6">文章详情 >></a>
+                            <p class="card-text" style="float: right">
+                                <i class="bi bi-calendar4-week"></i><small class="text-muted">&nbsp;2022-8-24&nbsp;&nbsp;</small>
+                                <i class="bi bi-eye"></i><small class="text-muted">&nbsp;1046&nbsp;&nbsp;</small>
+                                <i class="bi bi-chat-dots"></i><small class="text-muted">&nbsp;43</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
