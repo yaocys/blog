@@ -7,13 +7,13 @@ spring:
     cache: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://120.24.169.221:3306/blog?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
-    username: root
-    password: Ue!p41SQL
+    url: jdbc:mysql://43.139.72.73:3306/blog?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong&allowPublicKeyRetrieval=true
+    username: remote
+    password: Remote123
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.example.community.entity
+  type-aliases-package: cc.yaos.blog.entity
   configuration:
     use-generated-keys: true
     # 启用自动增长组件
