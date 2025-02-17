@@ -21,7 +21,6 @@ public class EssayServiceImpl implements EssayService{
     public void insertEssay(Essay essay){
         essay.setId(CommonUtil.generateUUID());
         essay.setCreateTime(new Date());
-        System.out.println(essay);
         essayMapper.insertEssay(essay);
     }
 

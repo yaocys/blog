@@ -20,4 +20,5 @@ public class Essay {
     private String title;
     private String content;
     private Date createTime;
+    private Integer views;
 }

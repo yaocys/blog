@@ -9,7 +9,7 @@
     </select>
 
     <select id="selectOne" resultType="Essay">
-        select id, title, content, create_time
+        select id, title, content, create_time,views
         from essay
         where id = #{id};
     </select>
