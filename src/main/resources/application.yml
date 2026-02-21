@@ -11,6 +11,15 @@ spring:
     username: root
     password: Ue!p41SQL
 
+blog:
+  auth:
+    # TOTP 密钥（Base32编码）。首次留空，启动后查看日志获取自动生成的密钥，
+    # 用 Authenticator 扫码完成绑定后，将密钥填入此处并重启，确保密钥固定不变。
+    totp-secret: ""
+    cookie-name: blog_admin
+    # Cookie 有效期（秒），默认 7 天
+    session-max-age: 604800
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: cc.yaos.blog.entity
